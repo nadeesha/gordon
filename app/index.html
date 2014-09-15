@@ -34,10 +34,16 @@
 
         </div>
     </div>
-    <div class="row">
-        <div class="go-list col-md-12">
-            <input type="text" id="input" value="" required="required">
+    <div class="row go-listview" ng-controller="todoCtrl">
+        <div class="go-input col-md-12">
+            <input type="text" id="input" ng-keydown="action($event)" ng-model="currentItem">
         </div>
+        <div class="go-list">
+            <div ng-repeat="item in list track by $index" class="go-item">
+                <span ng-bind="item"></span>
+            </div>
+        </div>
+    </div>
     </div>
 
 
@@ -68,7 +74,8 @@
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
     <script src="scripts/gordon.js"></script>
-    <script src="scripts/main/main-ctrl.js"></script>
+    <script src="scripts/todoCtrl.js"></script>
+    <script src="scripts/listSvc.js"></script>
 
     <!-- inject:partials -->
     <!-- angular templates will be automaticaly converted in js and inserted here -->
