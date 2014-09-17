@@ -12,7 +12,7 @@ gulp.task('wiredep', function () {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('app/index.html')
     .pipe(wiredep({
       directory: 'app/bower_components',
       exclude: ['bootstrap-sass-official']
