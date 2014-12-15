@@ -23,15 +23,33 @@
             width: 100%;
         }
     }
-    
     .go-list {
       .go-item {
-        padding: 15px;
+        padding: 15px 0 15px 0;
         margin: 15px;
-        height: 100px;
         font-size: large;
-        background-color: lightgrey;
-        float: left;
+        border-bottom: 1px dotted lightgrey;
+
+        .go-points {
+            background-color: chartreuse;
+            padding: 2px 7px;
+        }
+
+        .go-addedOn {
+            color: lightgrey;
+        }
+
+        .go-button {
+            cursor: pointer;
+        }
+
+        .glyphicon-ok {
+            color: green;
+        }
+
+        .glyphicon-trash {
+            color: red;
+        }
       }
     }
 }
