@@ -39,11 +39,11 @@
             <input type="text" id="input" ng-keydown="action($event)" ng-model="currentItem">
         </div>
         <div class="go-list">
-            <div ng-repeat="item in list track by $index" class="go-item">
+            <div ng-repeat="item in list track by $index" ng-class="{'go-done':item.done}" class="go-item">
                 <span ng-bind="item.points" class="go-points"></span>
                 <span ng-bind="item.task" class="go-task"></span>
-                <span class="glyphicon glyphicon-trash pull-right go-button"></span>
-                <span class="glyphicon glyphicon-ok go-button"></span>
+                <span class="glyphicon glyphicon-trash pull-right go-button" ng-click="remove($index)"></span>
+                <span class="glyphicon glyphicon-ok go-button" ng-click="markDone($index)"></span>
             </div>
         </div>
     </div>
