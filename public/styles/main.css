@@ -1,0 +1,38 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+.thumbnail {
+  height: 200px; }
+  .thumbnail img.pull-right {
+    width: 50px; }
+
+.go-chart {
+  height: 300px; }
+
+.go-listview {
+  width: 80%;
+  margin-left: 10%; }
+  .go-listview .go-input input {
+    font-size: xx-large;
+    padding: 10px;
+    width: 100%; }
+  .go-listview .go-list .go-item {
+    padding: 15px 0 15px 0;
+    margin: 15px;
+    font-size: large;
+    border-bottom: 1px dotted lightgrey;
+    height: 75px; }
+    .go-listview .go-list .go-item .go-points {
+      background-color: chartreuse;
+      padding: 2px 7px; }
+    .go-listview .go-list .go-item .go-addedOn {
+      color: lightgrey; }
+    .go-listview .go-list .go-item .go-button {
+      cursor: pointer; }
+    .go-listview .go-list .go-item .glyphicon-ok {
+      color: green; }
+    .go-listview .go-list .go-item .glyphicon-trash {
+      color: red; }

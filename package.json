@@ -1,7 +1,13 @@
 {
   "name": "gordon",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "express": "^4.10.6",
+    "node-uuid": "^1.4.2",
+    "request": "^2.51.0",
+    "stormpath": "^0.7.5"
+  },
   "devDependencies": {
     "gulp": "^3.8.0",
     "gulp-autoprefixer": "^0.0.6",
@@ -39,5 +45,9 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "foreman start -e dev.env"
   }
 }
