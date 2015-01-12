@@ -35,48 +35,49 @@ body {
     font-size: x-large; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000333}}
   .go-stat .go-figure {
-    font-size: xx-large;
+    display: block;
+    font-size: 3.2em;
     background: orange;
     color: white;
     padding: 6px 6px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000343}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000344}}
 .go-listview .go-input input {
   font-size: xx-large;
   width: 100%;
   border: 0;
   border-bottom: 1px lightgrey solid; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000351}}
 .go-listview .go-list {
   margin-top: 30px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000353}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000354}}
   .go-listview .go-list .go-item {
     font-size: x-large;
     margin-bottom: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000358}}
     .go-listview .go-list .go-item .go-task {
       margin-left: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000360}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000361}}
     .go-listview .go-list .go-item .go-points {
       font-weight: bold;
       font-size: medium;
       background: orange;
       color: white;
       padding: 3px 6px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000368}}
     .go-listview .go-list .go-item .go-addedOn {
       color: orange;
       color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000372}}
     .go-listview .go-list .go-item .go-button {
       cursor: pointer; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000375}}
     .go-listview .go-list .go-item .glyphicon {
       margin-right: 5px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000378}}
     .go-listview .go-list .go-item .glyphicon-ok {
       font-size: small; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000380}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/nadeesha\/gordon\/public\/styles\/main\.scss}line{font-family:\0000381}}
     .go-listview .go-list .go-item .glyphicon-trash {
       font-size: small; }
 
