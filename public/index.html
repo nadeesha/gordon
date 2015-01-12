@@ -6,6 +6,7 @@
     <title>frontend</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Bevan' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp,app}) styles/vendor.css -->
@@ -25,6 +26,9 @@
 </head>
 
 <body>
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -52,6 +56,8 @@
     ga('send', 'pageview');
     </script>
 
+    <script src="http://tenxer.github.io/xcharts/js/xcharts.min.js">
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -60,6 +66,9 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="bower_components/pouchdb/dist/pouchdb.js"></script>
+    <script src="bower_components/pouchdb-authentication/dist/pouchdb.authentication.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/angular-charts/dist/angular-charts.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -69,6 +78,7 @@
     <script src="scripts/loginCtrl.js"></script>
     <script src="scripts/signupCtrl.js"></script>
     <script src="scripts/listSvc.js"></script>
+    <script src="scripts/statsSvc.js"></script>
     <script src="scripts/authSvc.js"></script>
 
     <!-- inject:partials -->

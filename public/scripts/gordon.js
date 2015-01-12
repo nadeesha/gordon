@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gordon', ['ui.router', 'LocalStorageModule']);
+angular.module('gordon', ['ui.router', 'LocalStorageModule', 'angularCharts']);
 
 angular.module('gordon').config(function($stateProvider) {
     $stateProvider
@@ -24,4 +24,8 @@ angular.module('gordon').config(function($stateProvider) {
 angular.module('gordon').config(function(localStorageServiceProvider) {
     localStorageServiceProvider
         .setPrefix('gordon');
+});
+
+angular.module('gordon').run(function ($rootScope) {
+    $rootScope.db = new PouchDB('gordon');
 });

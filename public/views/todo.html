@@ -1,18 +1,49 @@
-<div class="row">
-    <div class="go-chart col-md-12">
-
+<div class="row go">
+    <div class="col-md-8">
+        <div ac-chart="chart.type" ac-data="chart.data" ac-config="chart.config" id="chart" class="chart go-chart"></div>
+    </div>
+    <div class="go-stats col-md-4">
+        <div class="go-stat">
+            <span class="go-topic">Yesterday</span>
+            <span class="go-figure">12p</span>
+        </div>
+        <div class="go-stat">
+            <span class="go-topic">Today so far</span>
+            <span class="go-figure">88p</span>
+        </div>
+        <div class="go-stat">
+            <span class="go-topic">To beat</span>
+            <span class="go-figure">60p</span>
+        </div>
+        <div class="go-stat">
+            <span class="go-topic">Time remaining</span>
+            <span class="go-figure">6432s</span>
+        </div>
     </div>
 </div>
-<div class="go-listview">
-    <div class="go-input">
-        <input type="text" id="input" ng-keydown="action($event)" ng-model="currentItem">
+<div class="row go-listview">
+    <div class="col-md-6 go-input">
+        <input type="text" id="input" ng-keydown="action($event)" ng-model="currentItem" placeholder="I will do this +5">
     </div>
-    <div class="go-list">
-        <div ng-repeat="item in list track by $index" class="go-item">
-            <span ng-bind="item.points" class="go-points"></span>
-            <span ng-bind="item.task" class="go-task"></span>
-            <span class="glyphicon glyphicon-trash pull-right go-button"></span>
-            <span class="glyphicon glyphicon-ok go-button"></span>
+    <div class="col-md-6 go-input">
+        <input type="text" id="input" placeholder="Done today..." disabled="true">
+    </div>
+</div>
+<div class="row go-listview">
+    <div class="col-md-6 go-list">
+        <div ng-repeat="result in undonelist track by $index" class="go-item">
+            <button class="glyphicon glyphicon-ok go-button" ng-click="markAsDone(result.key)"></button>
+            <button class="glyphicon glyphicon-trash go-button" ng-click="remove(result.key)"></button>
+            <span ng-bind="result.key.task" class="go-task"></span>
+            <span ng-bind="result.key.points" class="go-points"></span>
+        </div>
+    </div>
+    <div class="col-md-6 go-list">
+        <div ng-repeat="result in donelist track by $index" class="go-item">
+            <button class="glyphicon glyphicon-ok go-button"></button>
+            <button class="glyphicon glyphicon-trash go-button" ng-click="remove(result.key)"></button>
+            <span ng-bind="result.key.task" class="go-task"></span>
+            <span ng-bind="result.key.points" class="go-points"></span>
         </div>
     </div>
 </div>
