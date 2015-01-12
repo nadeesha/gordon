@@ -8,7 +8,7 @@ exports.createUser = function(req, res, next) {
     var dbname = 'd' + uuid.v1();
     var account = null;
 
-    function addPermissionsToUser(err, assignment) {
+    function handleResponse(err, assignment) {
         if (err) {
             console.error('error assigning user to db');
             return next(err);
@@ -28,8 +28,8 @@ exports.createUser = function(req, res, next) {
             console.log('successfully created db user: ');
             console.log(dbUser);
 
-            return db.addUserToDb(req.body.email, dbname, ['_reader', '_writer'],
-                null, addPermissionsToUser);
+            return db.addUserToDb(account.username, dbname, ['_reader', '_writer'],
+                null, handleResponse);
         }
     }
 
@@ -41,7 +41,7 @@ exports.createUser = function(req, res, next) {
             console.log('created db successfully');
             console.log(newDb);
 
-            return db.createUser(req.body.email, req.body.password, null,
+            return db.createUser(account.username, req.body.password, null,
                 addUserToDb);
         }
     }
