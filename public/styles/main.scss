@@ -1,0 +1,86 @@
+body {
+    font-family: 'Lato';
+    margin: 20px;
+}
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+.thumbnail {
+    height: 200px;
+    img.pull-right {
+        width: 50px;
+    }
+}
+.go-chart {
+    height: 400px;
+
+    .angular-charts-template .ac-chart {
+        width: 100%;
+
+        svg[Attributes Style] {
+            width: 100%;
+        }
+    }
+}
+.go-stat {
+    margin-top:15px;
+    .go-topic {
+        font-size: x-large;
+    }
+    .go-figure {
+        display: block;
+        font-size: 3.2em;
+        background: orange;
+        color: white;
+        padding: 6px 6px;
+    }
+}
+.go-listview {
+
+    .go-input {
+        input {
+            font-size: xx-large;
+            width: 100%;
+            border: 0;
+            border-bottom: 1px lightgrey solid;
+        }
+    }
+    .go-list {
+        margin-top:30px;
+
+        .go-item {
+            font-size: x-large;
+            margin-bottom: 10px;
+
+            .go-task {
+                margin-left: 10px;
+            }
+            .go-points {
+                font-weight: bold;
+                font-size: medium;
+                background: orange;
+                color: white;
+                padding: 3px 6px;
+            }
+            .go-addedOn {
+                color: orange;
+                color: white;
+            }
+            .go-button {
+                cursor: pointer;
+            }
+            .glyphicon {
+                margin-right: 5px;
+            }
+            .glyphicon-ok {
+                font-size: small;
+            }
+            .glyphicon-trash {
+                font-size: small;
+            }
+        }
+    }
+}
