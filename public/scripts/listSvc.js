@@ -58,7 +58,6 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
     function getPointsByDate(cb) {
         function map(doc) {
             if (doc.type === 'todo' && doc.done && !doc._deleted) {
-                // doc.completedOnDate = moment(doc.completedOn).format('MMM DD');
                 emit(moment(doc.completedOn).format('MMM DD'), Number(doc.points));
             }
         }

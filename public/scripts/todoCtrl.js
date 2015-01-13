@@ -20,6 +20,13 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         });
     };
 
+    function convertToDataPoint(point) {
+        this.push({
+            x: point.key,
+            y: [point.value]
+        });
+    }
+
     var refreshData = function() {
         listSvc.getUndoneList(function(err, result) {
             $scope.list = [];
@@ -43,9 +50,14 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
             });
         });
 
-        statsSvc.generateChartData(function(err, data) {
+        listSvc.getPointsByDate(function(err, data) {
+            var formattedData = [];
+            data.rows.map(convertToDataPoint, formattedData);
+
             $scope.$apply(function() {
-                $scope.chart.data = data;
+                $scope.chart.data = {
+                    data: formattedData
+                };
             });
         });
     };
@@ -65,8 +77,8 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         });
     };
 
-    $scope.markAsDone = function (item) {
-        listSvc.markAsDone(item, function (err, response) {
+    $scope.markAsDone = function(item) {
+        listSvc.markAsDone(item, function(err, response) {
             console.info('doc marked as done');
             console.log(response);
         });
