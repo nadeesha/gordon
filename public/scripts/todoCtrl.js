@@ -1,14 +1,6 @@
 angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsSvc) {
     'use strict';
 
-    $scope.chart = {
-        type: 'bar',
-        config: {
-            labels: false,
-            colors: ['orange'],
-        }
-    };
-
     var add = function(newItem) {
         listSvc.insertNew(newItem, function(err, response) {
             if (err) {
@@ -25,6 +17,23 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
             x: point.key,
             y: [point.value]
         });
+    }
+
+    function generateLast30Days() {
+        var dates = [];
+        var today = moment().dayOfYear();
+        var day = moment().dayOfYear();
+
+        while (Math.abs(today-day) < 25) {
+            dates.push({
+                x: moment().dayOfYear(day).format('MMM DD'),
+                y: [0]
+            });
+
+            day--;
+        }
+
+        return dates.reverse();
     }
 
     var refreshData = function() {
@@ -51,13 +60,11 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         });
 
         listSvc.getPointsByDate(function(err, data) {
-            var formattedData = [];
+            var formattedData = generateLast30Days();
             data.rows.map(convertToDataPoint, formattedData);
 
             $scope.$apply(function() {
-                $scope.chart.data = {
-                    data: formattedData
-                };
+                // $scope.chart.data
             });
         });
     };
@@ -93,6 +100,17 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
             });
 
             $scope.currentItem = null;
+        }
+    };
+
+    $scope.chart = {
+        type: 'bar',
+        config: {
+            labels: false,
+            colors: ['orange'],
+        },
+        data: {
+            data: generateLast30Days()
         }
     };
 
