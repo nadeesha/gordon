@@ -77,8 +77,7 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
 
             add({
                 task: parseTask($scope.currentItem),
-                points: parsePoints($scope.currentItem),
-                addedOn: Date.now()
+                points: parsePoints($scope.currentItem)
             });
 
             $scope.currentItem = null;

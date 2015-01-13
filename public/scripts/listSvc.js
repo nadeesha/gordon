@@ -3,12 +3,14 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
 
     function insertNew(newItem, cb) {
         newItem.type = 'todo';
+        newItem.addedOn = new Date();
         $rootScope.db.post(newItem, cb);
     }
 
-    function markAsDone (newItem, cb) {
-        newItem.done = true;
-        $rootScope.db.put(newItem, cb);
+    function markAsDone(doneItem, cb) {
+        doneItem.done = true;
+        doneItem.completedOn = new Date();
+        $rootScope.db.put(doneItem, cb);
     }
 
     function getAllDocs(cb) {
@@ -18,7 +20,6 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
             }
         }
 
-
         $rootScope.db.query({
             map: map
         }, {
@@ -26,7 +27,7 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
         }, cb);
     }
 
-    function getUndoneDocs (cb) {
+    function getUndoneDocs(cb) {
         function map(doc) {
             if (doc.type === 'todo' && !doc.done && !doc._deleted) {
                 emit(doc);
@@ -54,8 +55,20 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
         }, cb);
     }
 
-    function filter(doc) {
-        return !doc._deleted;
+    function getPointsByDate(cb) {
+        function map(doc) {
+            if (doc.type === 'todo' && doc.done && !doc._deleted) {
+                // doc.completedOnDate = moment(doc.completedOn).format('MMM DD');
+                emit(moment(doc.completedOn).format('MMM DD'), Number(doc.points));
+            }
+        }
+
+        $rootScope.db.query({
+            map: map,
+            reduce: '_sum'
+        }, {
+            group: true
+        }, cb);
     }
 
     function subscribe(cb) {
@@ -79,6 +92,7 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
         getList: getAllDocs,
         getDoneList: getDoneDocs,
         getUndoneList: getUndoneDocs,
+        getPointsByDate: getPointsByDate,
         subscribe: subscribe,
         deleteDoc: deleteDoc,
         markAsDone: markAsDone
