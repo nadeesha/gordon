@@ -65,7 +65,7 @@ angular.module('gordon').factory('listSvc', function($rootScope) {
 
                 $rootScope.db.changes({
                     live: true,
-                    since: completed.last_seq
+                    since: completed.last_seq // jshint ignore:line
                 }).on('change', cb);
             });
     }
