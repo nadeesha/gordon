@@ -12,29 +12,7 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         });
     };
 
-    function convertToDataPoint(point) {
-        this.push({
-            x: point.key,
-            y: [point.value]
-        });
-    }
 
-    function generateLast30Days() {
-        var dates = [];
-        var today = moment().dayOfYear();
-        var day = moment().dayOfYear();
-
-        while (Math.abs(today-day) < 25) {
-            dates.push({
-                x: moment().dayOfYear(day).format('MMM DD'),
-                y: [0]
-            });
-
-            day--;
-        }
-
-        return dates.reverse();
-    }
 
     var refreshData = function() {
         listSvc.getUndoneList(function(err, result) {
@@ -59,12 +37,11 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
             });
         });
 
-        listSvc.getPointsByDate(function(err, data) {
-            var formattedData = generateLast30Days();
-            data.rows.map(convertToDataPoint, formattedData);
-
+        statsSvc.generateChartData(function(err, result) {
             $scope.$apply(function() {
-                // $scope.chart.data
+                $scope.chart.data = {
+                    data: result
+                };
             });
         });
     };
@@ -108,9 +85,6 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         config: {
             labels: false,
             colors: ['orange'],
-        },
-        data: {
-            data: generateLast30Days()
         }
     };
 

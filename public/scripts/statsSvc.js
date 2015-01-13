@@ -1,26 +1,42 @@
 angular.module('gordon').factory('statsSvc', function(listSvc) {
-	'use strict';
+    'use strict';
 
-	function extractPoint(row) {
-		return Number(row.key.points);
-	}
+    function generateLast25Days() {
+        var dates = {};
+        var today = moment().dayOfYear();
+        var lastDay = moment().dayOfYear() - 25;
+
+        while (today !== lastDay) {
+            dates[moment().dayOfYear(lastDay).format('MMM DD')] = [0];
+            lastDay++;
+        }
+
+        return dates;
+    }
 
     function generateChartData(cb) {
-        listSvc.getDoneList(function(err, allDocs) {
-            var pointsArray = allDocs.rows.map(extractPoint);
+        listSvc.getPointsByDate(function(err, data) {
+            var dateSeries = generateLast25Days();
+            var chartData = [];
 
-            var chartData = {
-                series: 'points',
-                data: [{
-                    y: pointsArray
-                }]
-            };
+            data.rows.forEach(function(dataPoint) {
+                dateSeries[dataPoint.key] = dataPoint.value;
+            });
 
-            cb(null, chartData);
+            for (var date in dateSeries) {
+                if (dateSeries.hasOwnProperty(date)) {
+                    chartData.push({
+                        x: date,
+                        y: [dateSeries[date]]
+                    });
+                }
+            }
+
+            cb(err, chartData);
         });
     }
 
     return {
-    	generateChartData: generateChartData
+        generateChartData: generateChartData
     };
 });
