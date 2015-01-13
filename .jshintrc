@@ -19,9 +19,11 @@
   "smarttabs": true,
   "white": true,
   "validthis": true,
+  "predef": ["emit"],
   "globals": {
     "angular": false,
     "PouchDB": false,
-    "syncDom": false
+    "syncDom": false,
+    "moment": false
   }
 }
