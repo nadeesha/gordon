@@ -28,6 +28,5 @@
   },
   "_source": "git://github.com/nolanlawson/pouchdb-authentication.git",
   "_target": "~0.3.6",
-  "_originalSource": "pouchdb-authentication",
-  "_direct": true
+  "_originalSource": "pouchdb-authentication"
 }
