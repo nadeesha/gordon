@@ -85,6 +85,10 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         config: {
             labels: false,
             colors: ['orange'],
+            legend: {
+                display: false,
+                position: 'left'
+            }
         }
     };
 
