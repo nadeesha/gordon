@@ -42,6 +42,14 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
                 $scope.chart.data = {
                     data: result
                 };
+
+                $scope.points = {
+                    today: _.first(_.takeRight(result,1)).y[0],
+                    yesterday: _.first(_.takeRight(result,2)).y[0],
+                    difference: function () {
+                        return Math.abs(this.today - this.yesterday);
+                    }
+                }
             });
         });
     };

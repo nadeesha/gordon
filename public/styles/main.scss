@@ -14,73 +14,97 @@ body {
         width: 50px;
     }
 }
+.go-header {
+    height: 50px;
+    background: #FFC863;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #000000;
+    .go-header-link {
+        padding: 10px;
+        display: inline-block;
+    }
+    .go-header-link:hover {
+        background: #FFB939;
+    }
+    .go-brand {
+        font-weight:900;
+        padding-left: 20px;
+    }
+}
 .go-chart {
     height: 400px;
-
     .angular-charts-template .ac-chart {
         width: 100%;
-
         svg[Attributes Style] {
             width: 100%;
         }
     }
 }
 .go-stat {
-    margin-top:15px;
+    margin-top: 15px;
     .go-topic {
         font-size: x-large;
     }
     .go-figure {
         display: block;
         font-size: 3.2em;
-        background: orange;
+        background: lightslategrey;
         color: white;
         padding: 6px 6px;
+        font-weight: 900;
+        padding-left: 20px;
     }
 }
 .go-listview {
-
     .go-input {
         input {
-            font-size: xx-large;
+            font-size: x-large;
             width: 100%;
             border: 0;
             border-bottom: 1px lightgrey solid;
         }
     }
     .go-list {
-        margin-top:30px;
-
+        margin-top: 30px;
         .go-item {
-            font-size: x-large;
+            font-size: large;
             margin-bottom: 10px;
-
             .go-task {
-                margin-left: 10px;
+                margin-left: 5px;
             }
-            .go-points {
-                font-weight: bold;
-                font-size: medium;
-                background: orange;
-                color: white;
-                padding: 3px 6px;
+            .go-done {
+                text-decoration: line-through;
             }
-            .go-addedOn {
-                color: orange;
-                color: white;
-            }
-            .go-button {
-                cursor: pointer;
-            }
-            .glyphicon {
-                margin-right: 5px;
-            }
-            .glyphicon-ok {
-                font-size: small;
-            }
-            .glyphicon-trash {
-                font-size: small;
-            }
+        }
+        .go-points {
+            font-weight: bold;
+            font-size: medium;
+            background: orange;
+            color: white;
+            padding: 3px 6px;
+            margin-left: 5px;
+        }
+        .go-addedOn {
+            color: orange;
+            color: white;
+        }
+        .go-button {
+            cursor: pointer;
+        }
+        .glyphicon {
+            margin-right: 5px;
+        }
+        .glyphicon-ok {
+            font-size: small;
+        }
+        .glyphicon-trash {
+            font-size: small;
+        }
+        button {
+            border: 0px;
+            background: #FFF;
+            margin-left: 0px;
         }
     }
 }
