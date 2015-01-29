@@ -1,4 +1,4 @@
-angular.module('gordon').factory('statsSvc', function(listSvc) {
+angular.module('gordon').factory('statsSvc', function(dataSvc) {
     'use strict';
 
     function generateLast25Days() {
@@ -15,7 +15,7 @@ angular.module('gordon').factory('statsSvc', function(listSvc) {
     }
 
     function generateChartData(cb) {
-        listSvc.getPointsByDate(function(err, data) {
+        dataSvc.getPointsByDate(function(err, data) {
             var dateSeries = generateLast25Days();
             var chartData = [];
 

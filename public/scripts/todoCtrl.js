@@ -1,8 +1,8 @@
-angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsSvc) {
+angular.module('gordon').controller('todoCtrl', function($scope, dataSvc, statsSvc) {
     'use strict';
 
     var add = function(newItem) {
-        listSvc.insertNew(newItem, function(err, response) {
+        dataSvc.insertNew(newItem, function(err, response) {
             if (err) {
                 console.error(err);
             } else {
@@ -15,7 +15,7 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
 
 
     var refreshData = function() {
-        listSvc.getUndoneList(function(err, result) {
+        dataSvc.getUndoneList(function(err, result) {
             $scope.list = [];
 
             console.info('retrieved all docs');
@@ -26,7 +26,7 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
             });
         });
 
-        listSvc.getDoneList(function(err, result) {
+        dataSvc.getDoneList(function(err, result) {
             $scope.list = [];
 
             console.info('retrieved all docs');
@@ -63,14 +63,14 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
     };
 
     $scope.remove = function(item) {
-        listSvc.deleteDoc(item, function(err, response) {
+        dataSvc.deleteDoc(item, function(err, response) {
             console.info('deleted doc');
             console.log(response);
         });
     };
 
     $scope.markAsDone = function(item) {
-        listSvc.markAsDone(item, function(err, response) {
+        dataSvc.markAsDone(item, function(err, response) {
             console.info('doc marked as done');
             console.log(response);
         });
@@ -100,5 +100,5 @@ angular.module('gordon').controller('todoCtrl', function($scope, listSvc, statsS
         }
     };
 
-    listSvc.subscribe(refreshData);
+    dataSvc.subscribe(refreshData);
 });

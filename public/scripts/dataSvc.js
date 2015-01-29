@@ -1,4 +1,4 @@
-angular.module('gordon').factory('listSvc', function($rootScope) {
+angular.module('gordon').factory('dataSvc', function($rootScope) {
     'use strict';
 
     function insertNew(newItem, cb) {
