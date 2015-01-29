@@ -5,29 +5,27 @@
     <div class="go-stats col-md-2">
         <div class="go-stat">
             <span class="go-topic">Yesterday</span>
-            <span class="go-figure">12p</span>
+            <span class="go-figure" ng-bind="points.yesterday"></span>
         </div>
         <div class="go-stat">
             <span class="go-topic">Today so far</span>
-            <span class="go-figure">88p</span>
+            <span class="go-figure" ng-bind="points.today"></span>
         </div>
         <div class="go-stat">
-            <span class="go-topic">To beat</span>
-            <span class="go-figure">60p</span>
+            <span ng-show="points.today <= points.yesterday" class="go-topic">To beat yesterday</span>
+            <span ng-show="points.today > points.yesterday" class="go-topic">Better than yesterday!</span>
+            <span class="go-figure" ng-bind="points.difference()"></span>
         </div>
     </div>
 </div>
-<div style="height:50px;"></div>
+<div style="height:20px;"></div>
 <div class="row go-listview">
     <div class="col-md-6 go-input">
         <input type="text" id="input" ng-keydown="action($event)" ng-model="currentItem" placeholder="I will do this +5">
     </div>
-    <div class="col-md-6 go-input">
-        <input type="text" id="input" placeholder="Done today..." disabled="true">
-    </div>
 </div>
 <div class="row go-listview">
-    <div class="col-md-6 go-list">
+    <div class="col-md-4 go-list">
         <div ng-repeat="result in undonelist track by $index" class="go-item">
             <button class="glyphicon glyphicon-ok go-button" ng-click="markAsDone(result.key)"></button>
             <button class="glyphicon glyphicon-trash go-button" ng-click="remove(result.key)"></button>
@@ -35,11 +33,10 @@
             <span ng-bind="result.key.points" class="go-points"></span>
         </div>
     </div>
-    <div class="col-md-6 go-list">
+    <div class="col-md-4 go-list">
         <div ng-repeat="result in donelist track by $index" class="go-item">
-            <button class="glyphicon glyphicon-ok go-button"></button>
             <button class="glyphicon glyphicon-trash go-button" ng-click="remove(result.key)"></button>
-            <span ng-bind="result.key.task" class="go-task"></span>
+            <span ng-bind="result.key.task" class="go-task go-done"></span>
             <span ng-bind="result.key.points" class="go-points"></span>
         </div>
     </div>

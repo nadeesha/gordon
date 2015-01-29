@@ -5,11 +5,11 @@ var users = require('./api/users');
 var bodyParser = require('body-parser');
 
 var app = express();
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
-app.post('/api/users', users.createUser);
+// app.post('/api/users', users.createUser);
 
-app.post('/api/sessions', users.createSession);
+// app.post('/api/sessions', users.createSession);
 
 app.use(express.static(__dirname + '/public'));
 
