@@ -48,6 +48,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "foreman start -e dev.env;  echo 5656 > ~/.pow/jobsatfreedom"
+    "start": "foreman start -e dev.env;  echo 5656 > ~/.pow/gordon"
   }
 }

@@ -7,7 +7,8 @@ angular.module('gordon').factory('statsSvc', function(dataSvc) {
         var lastDay = moment().dayOfYear() - 25;
 
         while (today >= lastDay) {
-            dates[moment().dayOfYear(lastDay).format('MMM DD')] = [0];
+            var date = moment().dayOfYear(lastDay).format('MMM DD');
+            dates[date] = lastDay;
             lastDay++;
         }
 
@@ -16,21 +17,37 @@ angular.module('gordon').factory('statsSvc', function(dataSvc) {
 
     function generateChartData(cb) {
         dataSvc.getPointsByDate(function(err, data) {
-            var dateSeries = generateLast25Days();
             var chartData = [];
 
+            var dateSeries = generateLast25Days();
+
+            // keep the order of the dates and reset the series
+            var datesOrder = _.clone(dateSeries);
+            _.forIn(dateSeries, function (v, k) {
+                dateSeries[k] = [0];
+            });
+
             data.rows.forEach(function(dataPoint) {
-                dateSeries[dataPoint.key] = dataPoint.value;
+                if (dateSeries[dataPoint.key]) {
+                    // TODO: drop irrelevant old datapoints from the
+                    // map reduce query.
+                    dateSeries[dataPoint.key] = dataPoint.value;
+                }
             });
 
             for (var date in dateSeries) {
                 if (dateSeries.hasOwnProperty(date)) {
                     chartData.push({
                         x: date,
-                        y: [dateSeries[date]]
+                        y: [dateSeries[date]],
+                        order: datesOrder[date]
                     });
                 }
             }
+
+            chartData = _.sortBy(chartData, function (point) {
+                return point.order;
+            });
 
             cb(err, chartData);
         });
